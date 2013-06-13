@@ -133,9 +133,8 @@ function clearform() {
           <a class="brand" href="#">XFR STN</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Ingest form</a></li>
-              <li><a href="ingest-log.html">Ingest log</a></li>
-              <li><a href="#about">Shipment tracker</a></li>
+              <li class="active"><a href="#">Intake form</a></li>
+              <li><a href="capture-log.html">Capture inventory</a></li>
               <li><a href="#contact">FAQ</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -145,9 +144,10 @@ function clearform() {
 
     <div class="container">
 
-      <h1>Ingest Form</h1>
+      <h1>Intake Form</h1>
       <hr>
-      <form class="form-horizontal">
+
+      <form class="form-horizontal" action="ajax/intake.php" method="post">
 
    		<div class="row">
    			<div class="span6">
@@ -156,21 +156,21 @@ function clearform() {
    	 		 	<div class="control-group">
 			 		<label class="control-label" for="inputID">ID Number</label>
 			 	 	<div class="controls">
-			      		<input id="inputID" type="text" placeholder="E.g. XFR.5.23.4">
+			      		<input id="inputID" name="id_number" type="text" placeholder="E.g. XFR.5.23.4">
 			 	 	</div>
 			    </div>
 
 			    <div class="control-group">
 				    <label class="control-label" for="inputTitle">Title</label>
 				    <div class="controls">
-				    	<input id="inputTitle" type="text" placeholder="e.g. Best Video Ever">
+				    	<input id="inputTitle" name="title" type="text" placeholder="e.g. Best Video Ever">
 			    	</div>
 				</div>
 
 				<div class="control-group">
 			    	<label class="control-label" for="inputCreator">Creator</label>
 			    	<div class="controls">
-			    		<input id="inputCreator" type="text" placeholder="e.g. Jane Doe">
+			    		<input id="inputCreator" name="creator" type="text" placeholder="e.g. Jane Doe">
 			    	</div>
 			    </div>
 
@@ -242,5 +242,6 @@ function clearform() {
 
     </div> <!-- /container --><script src="http://code.jquery.com/jquery.js"></script>
     <script src="http://www.benfinoradin.info/xfr_stn/js/bootstrap.min.js"></script>
+    <script src="js/process_form.js"></script>
   </body>
 </html>
