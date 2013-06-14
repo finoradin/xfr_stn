@@ -10,104 +10,38 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
       .wider{
-      	width: 385px;
+      	width: 420px;
       }
       .fullwidth{
-      	width: 100%;
+      	width: 97%;
       }
 
     </style>
 
 <script type="text/javascript">
-$(window).load(function () {
-    $(function () {
-        var defaults = {
-            'usercomm': '-'
-        };
-
-        // separating set and remove
-        // note that you could add "defaults" as an arg if you had different
-        // defaults for different fieldsets
-        var setDefaults = function (inputElements) {
-            $(inputElements).each(function () {
-                var d = defaults[this.name];
-                if (d) {
-                    // set with jQuery
-                    // we don't need the data - just check on the class
-                    $(this).val(d)
-                        .addClass('default_value');
-                }
-            });
-        };
-
-        var removeDefaults = function (inputElements) {
-            $(inputElements).each(function () {
-                if ($(this).hasClass('default_value')) {
-                    $(this).val('')
-                        .removeClass('default_value');
-                }
-            });
-        };
-
-        setDefaults(jQuery('form[name=builder] input'));
-
-        $("span.add").click(function () {
-            // get the correct fieldset based on the current element
-            var $fieldset = $(this).closest('fieldset');
-            var $inputset = $('p', $fieldset)
-                .first()
-                .clone()
-                .insertBefore($('p', $fieldset).last());
-            // add a remove button
-            $inputset.append('<span class="remove">Remove</span>');
-            setDefaults($('input', $inputset));
-            // return false; (only needed if this is a link)
-        });
-
-        // use delegate here to avoid adding new 
-        // handlers for new elements
-        $('fieldset').delegate("span.remove", {
-            'click': function () {
-                $(this).parent().remove();
-            }
-        });
-
-        // Toggles 
-        $('form[name=builder]').delegate('input', {
-            'focus': function () {
-                removeDefaults($(this));
-            },
-                'blur': function () {
-                // switch to using .val() for consistency
-                if (!$(this).val()) setDefaults(this);
-            }
-        });
-    });
-
-});
 
 function printthis() {
-    var ihcOut = '<xml>\n';
-    $('fieldset').each(function () {
+    var ihcOut = '<?xml version="1.0" encoding="UTF-8"?>\n<metadata>\n';
+    $('form.ajax').each(function () {
         if ($(this).find('.add').length > 0) return;
         var idNumber = $(this).find('#inputID').val();
         var title = $(this).find('#inputTitle').val();
         var creator = $(this).find('#inputCreator').val();
         var creationDate = $(this).find('#inputCreationDate').val();
-        var documentType = $(this).find('#inputDocType').val();
         var totalRunningTime = $(this).find('#inputTRT').val();
         var formatType = $(this).find('#formattype').val();
+        var collection = $(this).find('#collection').val();
         var description = $(this).find('#description').val();
         ihcOut +=
         '\t<idnumber>' + idNumber + '</idnumber>\n'
         + '\t<title>' + title + '</title>\n'
         + '\t<creator>' + creator + '</creator>\n'
         + '\t<creationdate>' + creationDate + '</creationdate>\n'
-        + '\t<documenttype>' + documentType + '</documenttype>\n'
         + '\t<totalrunningtime>' + totalRunningTime + '<totalrunningtime>\n'
         + '\t<formattype>' + formatType + '</formattype>\n'
+        + '\t<collection>' + collection + '</collection>\n'
         + '\t<description>' + description + '</description>\n'
-        + '</xml>';
+        + '</metadata>';
     });
     $('#output').val(ihcOut);
 
@@ -135,7 +69,7 @@ function clearform() {
             <ul class="nav">
               <li class="active"><a href="#">Intake form</a></li>
               <li><a href="capture-log.html">Capture inventory</a></li>
-              <li><a href="#contact">FAQ</a></li>
+              <li><a href="faq.html">FAQ</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -143,11 +77,10 @@ function clearform() {
     </div>
 
     <div class="container">
-
-      <h1>Intake Form</h1>
+      <h1>Use this  form to create metadata for the Internet Archive about the material you are capturing</h1>
       <hr>
-
-      <form class="form-horizontal" action="ajax/intake.php" method="post">
+<br>
+      <form class="form-horizontal ajax" action="ajax.php" method="post">
 
    		<div class="row">
    			<div class="span6">
@@ -156,42 +89,35 @@ function clearform() {
    	 		 	<div class="control-group">
 			 		<label class="control-label" for="inputID">ID Number</label>
 			 	 	<div class="controls">
-			      		<input id="inputID" name="id_number" type="text" placeholder="E.g. XFR.5.23.4">
+			      		<input id="inputID" name="id_number" type="text" placeholder="XFR.2013-7-23.1A">
 			 	 	</div>
 			    </div>
 
 			    <div class="control-group">
 				    <label class="control-label" for="inputTitle">Title</label>
 				    <div class="controls">
-				    	<input id="inputTitle" name="title" type="text" placeholder="e.g. Best Video Ever">
+				    	<input id="inputTitle" name="title" type="text" placeholder="Best Video Ever">
 			    	</div>
 				</div>
 
 				<div class="control-group">
 			    	<label class="control-label" for="inputCreator">Creator</label>
 			    	<div class="controls">
-			    		<input id="inputCreator" name="creator" type="text" placeholder="e.g. Jane Doe">
+			    		<input id="inputCreator" name="creator" type="text" placeholder="Jane Doe">
 			    	</div>
 			    </div>
 
 			    <div class="control-group">
 			    	<label class="control-label" for="inputCreationDate">Creation Date</label>
 			    	<div class="controls">
-			    		<input id="inputCreationDate" type="text" placeholder="E.g. 1984">
-		    		</div>
-	    		</div>
-
-	    		<div class="control-group">
-			    	<label class="control-label" for="inputDocType">Document Type</label>
-			    	<div class="controls">
-			    		<input id="inputDocType" type="text" placeholder="E.g. ????">
+			    		<input id="inputCreationDate" name="creationDate" type="text" placeholder="1984">
 		    		</div>
 	    		</div>
 
 				<div class="control-group">
 					<label class="control-label" for="inputTRT">Total Running Time (est)</label>
 					<div class="controls">
-						<input id="inputTRT" type="text" placeholder="E.g. ????">
+						<input id="inputTRT" name="trt" type="text" placeholder="00:31:23">
 					</div>
 				</div>
 
@@ -200,27 +126,39 @@ function clearform() {
 				  <label class="control-label" for="formattype">Format Type</label>
 				  <div class="controls">
 				    <select id="formattype" name="formattype" class="input-large">
-				      <option>3/4” UMatic</option>
+				      <option></option>
+              <option>3/4" UMatic</option>
 				      <option>UMaticSP</option>
 				      <option>VHS</option>
 				      <option>S-VHS</option>
-				      <option>3.5” Floppy</option>
-				      <option>5.25” Floppy</option>
+				      <option>3.5" Floppy</option>
+				      <option>5.25" Floppy</option>
 				      <option>Hard Drive</option>
 				      <option>Zip Disk</option>
 				      <option>Jazz Drive</option>
 				    </select>
 				  </div>
 				</div>
-				
-	    	<textarea rows="6" id="description" class="wider" placeholder="Description"></textarea>
-			
-			<br><br>
-	 		
-	 		<button type="button" class="btn btn-danger" onclick="clearform()">Clear form</button>
-	 		&nbsp;
-	 		<button type="button" id="submit" class="btn btn-primary" onclick="printthis()">Generate XML</button>
-	 		
+
+                <!-- Select Basic -->
+        <div class="control-group">
+          <label class="control-label" for="collection">Collection</label>
+          <div class="controls">
+            <select id="collection" name="collection" class="input-large">
+              <option></option>
+              <option>MWF</option>
+              <option>New Museum</option>
+              <option>XFR STN Public</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="captured_by">Capture conducted by</label>
+          <div class="controls">
+            <input id="captured_by" name="captured_by" type="text" placeholder="Your name here">
+          </div>
+        </div>	
 	 		
 
 
@@ -228,20 +166,42 @@ function clearform() {
 	     	</div>
 
 	     <div class="span6">
-	     	<label>XML Output (paste this into a textfile)</label>
-			<textarea id="output" rows="22" class="fullwidth"></textarea>
-			<br><br>
-			<button type="submit" class="btn btn-success">Finished? Save to ingest log</button>
+	   <textarea rows="16" id="description" name="description" class="wider" placeholder="Describe the materials..."></textarea>
+
+     <br>
+     <br>
+     <button type="button" class="btn btn-danger" onclick="clearform()">Clear form</button>
+      &nbsp;
+      
+      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal" onclick="printthis()">Get XML</a>
 	     </div>
 	     
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel">XML for the Internet Archive</h3>
+  </div>
+  <div class="modal-body">
+    <textarea id="output" rows="18" class="fullwidth"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Go back</button>
+    <button type="submit" class="btn btn-success">Save to capture inventory</button>
+  </div>
+</div>
+
 </div> <!-- / end of row div -->
 </form>
 <hr>
 
 
 
-    </div> <!-- /container --><script src="http://code.jquery.com/jquery.js"></script>
+
+
+    </div> <!-- /container --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="http://www.benfinoradin.info/xfr_stn/js/bootstrap.min.js"></script>
-    <script src="js/process_form.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
