@@ -37,7 +37,7 @@ function printthis() {
         + '\t<title>' + title + '</title>\n'
         + '\t<creator>' + creator + '</creator>\n'
         + '\t<creationdate>' + creationDate + '</creationdate>\n'
-        + '\t<totalrunningtime>' + totalRunningTime + '<totalrunningtime>\n'
+        + '\t<totalrunningtime>' + totalRunningTime + '</totalrunningtime>\n'
         + '\t<formattype>' + formatType + '</formattype>\n'
         + '\t<collection>' + collection + '</collection>\n'
         + '\t<description>' + description + '</description>\n'
@@ -89,7 +89,7 @@ function clearform() {
    	 		 	<div class="control-group">
 			 		<label class="control-label" for="inputID">ID Number</label>
 			 	 	<div class="controls">
-			      		<input id="inputID" name="id_number" type="text" placeholder="XFR.2013-7-23.1A">
+			      		<input id="inputID" name="xfr_identifier" type="text" placeholder="XFR.2013-7-23.1A">
 			 	 	</div>
 			    </div>
 
@@ -188,7 +188,7 @@ function clearform() {
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Go back</button>
-    <button type="submit" class="btn btn-success">Save to capture inventory</button>
+    <button type="submit" class="btn btn-success">Download XML and save to inventory</button>
   </div>
 </div>
 
@@ -200,7 +200,7 @@ function clearform() {
 
 
 
-    </div> <!-- /container --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </div> <!-- /container --><script src="js/jquery-1.10.1.min.js"></script>
     <script src="http://www.benfinoradin.info/xfr_stn/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
   </body>
