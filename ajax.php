@@ -16,6 +16,36 @@ if (isset($_POST)){
 					`description`		= '{$_POST['description']}',
 					`captured_by`		= '{$_POST['captured_by']}'");
 
+
+		// make a new text file with the unique ID of the item
+		$myFile = "{$_POST['xfr_identifier']}.txt";
+
+		// opens / creates a file for writing into
+		$fh = fopen($myFile, 'w');
+
+		// write the markup and metadata
+		$xml = '<?xml version="1.0" encoding="UTF-8"?>
+					<metadata>
+						<idnumber>'.$_POST["xfr_identifier"].'</idnumber>
+						<title>'.$_POST["title"].'</title>
+						<creator>'.$_POST["creator"].'</creator>
+						<creationdate>'.$_POST["creationDate"].'</creationdate>
+						<totalrunningtime>'.$_POST["trt"].'</totalrunningtime>
+						<formattype>'.$_POST["formattype"].'</formattype>
+						<collection>'.$_POST["collection"].'</collection>
+						<description>'.$_POST["description"].'</description>
+					</metadata>';
+
+		// Write to the file
+		fwrite($fh,$xml);
+
+		// close the file
+		fclose($fh);
+     
+    
+     // Read the file from disk
+     readfile($myFile);
+
 }
 
 ?>
