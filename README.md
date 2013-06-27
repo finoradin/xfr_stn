@@ -1,4 +1,4 @@
 xfr_stn
 =======
 
-The beginings of a simple microsite for managing ingest and shipping workflow of xfr stn exhibition at the New Museum.
+A simple microsite for the XFR STN exhibition at the New Museum. Includes public facing site and back-end metadata creation and logging tool.
