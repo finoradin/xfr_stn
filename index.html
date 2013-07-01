@@ -3,104 +3,87 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Template &middot; Bootstrap</title>
+    <title>XFR STN at the New Museum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 60px;
-      }
-
-      /* Custom container */
-      .container {
-        margin: 0 auto;
-        max-width: 1000px;
-      }
-      .container > hr {
-        margin: 60px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 200px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 100px;
-        line-height: 1;
-      }
-      .jumbotron .lead {
-        font-size: 24px;
-        line-height: 1.25;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      body{
-/*        background-image: url('img/background.jpeg');
-*/        background-position: 50% 50%;
-        background-repeat: no-repeat;
-/*        background-color: black;
-*/      }
-    </style>
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="js/jquery-1.10.1.min.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
   </head>
 
   <body>
 
-    <div class="container">
+<div class="container">
+	<div class="row">
+		<div class="span10 centerplz">
+			<a href=""><img class="logo" src="img/nm/xfr_logo.jpg"></a>
+             <p class="lead">This July, the New Museum is dedicating its Fifth Floor gallery space to “XFR STN” (Transfer Station), an open-door artist-centered media archiving project.</p>
+
+		</div>
+	</div>
+  <div class="row">
+    <div class="span10 offset1"> 
+        <div class="nav-row">
+          <a class="xfr-nav" href="about/index.html">Read more</a>
+          <a class="xfr-nav" href="#myModal" data-toggle="modal">Sign up for an appointment</a>
+        </div>
+      </div>  
+    </div>
+          <div id="footer">
+        <div class="innerfooter">
+          <img src="img/nm/nm_silhouette.jpg" width="20px">
+          <hr>
+          <a href="http://www.newmuseum.org">newmuseum.org</a>
+        </div>
+       </div>
+  </div>
+
+</div> 
 
 
 
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>XFR STN</h1>
-        <p class="lead">This July, the New Museum is dedicating its Fifth Floor gallery space to “XFR STN” (Transfer Station), an open-door artist-centered media archiving project.</p>
-        <a class="btn btn-large btn-success" href="schedule.html">Sign up for an appointment</a>
-      </div>
+<!-- Terms Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Before you sign up for an appointment...</h3>
+  </div>
+  <div class="modal-body">
+    <p class="terms">Participation in XFR STN requires your agreement to the following terms. Scroll all the way to the bottom to approve:
+      <ul class="terms">
+        <li>I am voluntarily participating in the “XFR STN” exhibition by submitting my archival material to be transferred from analog to digital format.
+        <li>The New Museum has my permission to create digital surrogates of all submitted archival material.
+        <li>The New Museum has my permission to share and distribute digital surrogates (edited and unedited) of submitted archival material for public distribution online via the Internet Archive (archive.org), the Digital Archive (archive.newmuseum.org), and other online platforms such as Youtube, Tumblr, and/or Facebook.
+        <li>I agree that the New Museum shall not be held liable for any loss or damage, resulting from (but not limited to) use, storage, handling, and transfer of all voluntarily submitted material.
+        <li>I understand that the New Museum shall not be held liable for any error or deficiency in the representation of information related to submitted material.
+        <li>I understand that the New Museum assumes no responsibility for resolving questions concerning copyright. I assume all responsibility for any copyright infringement under USC Title 17 that may arise through the use of the submitted material and agree to indemnify and hold harmless the New Museum and its agents against all claims, demands, costs, and expenses, including, without limitation, attorneys’ fees, incurred as a result of alleged or actual copyright infringement or other legal or regulatory cause of action arising from the use of materials held by the New Museum.
+        <li>I hereby warrant that I have the full right, power, and authority to enter into this agreement. This agreement shall be construed in accordance with the laws of the State of New York.
+        <li>I have read, understand, and agree to the terms and conditions outlined above.
+      </ul>
+    </p>
+        <a role="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">I do not agree</a>
+    <a role="button" href="schedule/" role="button" class="btn btn-success">I agree</a>
+  </div>
 
-      <hr>
+</div>
 
-      <div class="footer">
-      </div>
 
-    </div> <!-- /container -->
+    
+    <script src="js/bootstrap.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-affix.js"></script>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
 
   </body>
 </html>

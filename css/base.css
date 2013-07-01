@@ -1,0 +1,197 @@
+@font-face
+{
+font-family: 'Neutra';
+src: url(Neutra2Display-Titling.otf);
+}
+
+
+body, html{
+
+	font-family: courier;
+	font-size: 16px;
+	line-height: 1.8em;
+	padding-top: 30px;
+}
+
+	.container{
+		max-width: 1000px;
+	}
+
+
+
+@media (max-width: 800px) {
+  .affix {
+    position: static;
+    width: 100% !important;
+  }
+.modal-body {
+  position: relative;
+  max-height: 200px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+}
+	.nav-row{
+		width: 100%;
+		height: 50px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 40px;
+		padding-top: 80px;
+		background-image: url('../img/nm/stripes-1.jpg');
+		background-repeat: no-repeat;
+	}
+     .nav-row a {
+        display: block;
+        margin-left: 10%;
+        float: left;
+        width: 270px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        text-align: left;
+        font-family: Courier;
+        text-transform: uppercase;
+        color: black;
+        background-image: url('../img/nm/navbg.jpg');
+        background-repeat: no-repeat;
+      }
+
+         .nav-row   a:hover{
+        background-image: url('../img/nm/navbg.hover.jpg');
+        background-repeat: no-repeat;
+        text-decoration: none;
+        color: #00abdf;
+      }
+
+	.centerplz{
+
+		 float: none !important;
+		 margin-left: auto !important;
+		 margin-right: auto !important; 
+	}
+
+      #footer{
+        height: 110px;
+        width: 100%;
+
+        text-transform: uppercase;
+        font-size: 16px;
+        background-image: url('../img/nm/90-transparent.png');
+        padding-top: 80px;
+        padding-bottom: 100px;
+      }
+
+      #footer hr{
+        background-color: black;
+        width: 100%;
+        height: 4px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .innerfooter{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+
+
+       .lead {
+        font-size: 18px;
+        line-height: 1.25;
+   
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        font-family: Courier;
+      }
+
+
+      .logo{
+        margin-bottom: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url('../img/nm/xfr_logo.jpg');
+      }
+
+             h1{
+        font-family: Neutra;
+        font-size: 24px;
+        margin-top: 50px;
+      }
+
+     .affix {
+    top: 30px;
+    width: 270px !important;
+}
+
+@media (max-width: 1200px) {
+  .affix {
+  	width: 220px !important;
+  }
+ }
+
+ @media (max-width: 980px) {
+  .affix {
+  	width: 165px !important;
+  }
+}
+
+.navigation{
+    background-image: url('../img/nm/stripes-1.jpg');
+    background-repeat: no-repeat;
+    padding-top: 47px;
+    padding-left: 0px;
+    text-transform: uppercase;
+}
+
+.navigation ul {
+	list-style: none;
+	width: 100%
+}
+
+.navigation a{
+  color: black;
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-image: url('../img/nm/navbg-other.jpg');
+  background-repeat: no-repeat;
+  background-position: right top;
+  margin-left: -25px;
+  padding-top: 10px;
+}
+
+.navigation a:hover{
+  color: #00abdf;
+  background-image: url('../img/nm/navbg.hover-other.jpg');
+}
+
+      .bodycopy{
+
+        background-image: url('../img/nm/stripes-1.jpg');
+        background-repeat: no-repeat;
+        padding-top: 60px;
+      }
+
+
+
+      .agree {
+      	color: green;
+      }
+
+
+      iframe{
+      	width: 1000px;
+      	height: 1000px;
+      	border: none;
+      }
+
+      .terms{
+      	font-size: 14px;
+      }
