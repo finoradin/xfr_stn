@@ -4,10 +4,16 @@ font-family: 'Neutra';
 src: url(Neutra2Display-Titling.otf);
 }
 
+@font-face
+{
+font-family: 'Cousine';
+src: url(Cousine-Regular-Latin.ttf);
+}
+
 
 body, html{
 
-	font-family: courier;
+	font-family: Cousine;
 	font-size: 16px;
 	line-height: 1.8em;
 	padding-top: 30px;
