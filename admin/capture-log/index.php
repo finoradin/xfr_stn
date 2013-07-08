@@ -40,7 +40,7 @@ $foo =  mysql_query("SELECT * FROM items;") or die(mysql_error());
           <a class="brand" href="#">XFR STN</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="../intake-form.html">Intake form</a></li>
+              <li><a href="../">Intake form</a></li>
               <li class="active"><a href="#about">Capture inventory</a></li>
               <li><a href="faq.html">FAQ</a></li>
             </ul>
