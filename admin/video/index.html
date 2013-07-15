@@ -4,7 +4,7 @@
     <title>XFR STN Ingest Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
         <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -67,9 +67,10 @@ function clearform() {
           <a class="brand" href="#">XFR STN</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Intake form</a></li>
-              <li><a href="capture-log/">Capture inventory</a></li>
-              <li><a href="faq.html">FAQ</a></li>
+              <li class="active"><a href="#">Video</a></li>
+              <li><a href="../born-digital/">Born-Digital</a></li>
+              <li><a href="../capture-log/">Capture inventory</a></li>
+              <li><a href="../resources.html">Resources</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -83,7 +84,9 @@ function clearform() {
       <form class="form-horizontal ajax" action="ajax.php" method="post">
 
       <div class="row">
+
         <div class="span6">
+        <h3>Core Content Metadata</h3>
           <fieldset>
            <div class="control-group">
           <label class="control-label" for="inputID">ID Number</label>
@@ -124,27 +127,36 @@ function clearform() {
             </select>
           </div>
         </div>
+            <textarea rows="8" id="description" name="description" class="wider" placeholder="Description of the content."></textarea>
+
+
+        <h3>Capture Information</h3>
+        <div class="control-group">
+          <label class="control-label" for="operator">Operator</label>
+          <div class="controls">
+            <input id="operator" name="operator" type="text" placeholder="i.e. Walter Forsberg">
+          </div>
+        </div>  
+
+<div class="control-group">
+  <label class="control-label" for="station_id">Station ID</label>
+  <div class="controls">
+    <label class="radio" for="station_id-0">
+      <input type="radio" name="station_id" id="station_id-0" value="1 (video)" checked="checked">
+      1 (video)
+    </label>
+    <label class="radio" for="station_id-1">
+      <input type="radio" name="station_id" id="station_id-1" value="2 (video)">
+      2 (video)
+    </label>
+  </div>
+</div>
+
+
         </div>
+        
         <div class="span6">
-                 <textarea rows="13" id="description" name="description" class="wider" placeholder="Describe the materials..."></textarea>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="span6">
-        </div>
-        <div class="span6">
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="span6">
-
-
-
-<hr>
-<h3>Video Capture Information</h3>
+            <h3>Video Properties</h3>
         <!-- Select Basic -->
         <div class="control-group">
           <label class="control-label" for="format">Format</label>
@@ -250,43 +262,35 @@ function clearform() {
     </select>
   </div>
 </div>
+<div class="control-group">
+  <label class="control-label" for="brand_stock">Brand Stock</label>
+  <div class="controls">
+    <input id="brand_stock" name="brand_stock" type="text" placeholder="i.e. Sony" class="input-xlarge">
+  </div>
+</div>
 
-        <div class="control-group">
-          <label class="control-label" for="operator">Operator</label>
-          <div class="controls">
-            <input id="operator" name="operator" type="text" placeholder="i.e. Walter Forsberg">
-          </div>
-        </div>  
-      
+<div class="control-group">
+  <label class="control-label" for="model">Model</label>
+  <div class="controls">
+    <input id="model" name="model" type="text" placeholder="i.e. DVM-60EXML" class="input-xlarge">
+    
+  </div>
+</div> 
 
-
-       </fieldset>
-        </div>
-
-       <div class="span6">
-        <hr>
-        <h3>Born Digital Capture</h3>
-        <!-- Select Basic -->
-        <div class="control-group">
-          <label class="control-label" for="format">Format</label>
-          <div class="controls">
-            <select id="formattype" name="format" class="input-large">
-              <option></option>
-              <option>3.5" Floppy</option>
-              <option>5.25" Floppy</option>
-              <option>Hard Drive</option>
-              <option>Zip Disk</option>
-              <option>Jazz Drive</option>
-            </select>
-          </div>
-        </div>
-
-     <br>
-     <br>
+<br><br>
      <button type="button" class="btn btn-danger" onclick="clearform()">Clear form</button>
       &nbsp;
       
       <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal" onclick="printthis()">Get XML</a>
+
+  </div>
+</div>
+
+
+
+
+       </fieldset>
+
        </div>
        
 
@@ -314,7 +318,7 @@ function clearform() {
 
 
     </div> <!-- /container --><script src="../js/jquery-1.10.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/main.js"></script>
   </body>
 </html>
