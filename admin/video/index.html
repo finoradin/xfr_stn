@@ -18,41 +18,6 @@
 
     </style>
 
-<script type="text/javascript">
-
-function printthis() {
-    var ihcOut = '<?xml version="1.0" encoding="UTF-8"?>\n<metadata>\n';
-    $('form.ajax').each(function () {
-        if ($(this).find('.add').length > 0) return;
-        var idNumber = $(this).find('#inputID').val();
-        var title = $(this).find('#inputTitle').val();
-        var creator = $(this).find('#inputCreator').val();
-        var creationDate = $(this).find('#inputCreationDate').val();
-        var totalRunningTime = $(this).find('#inputTRT').val();
-        var formatType = $(this).find('#formattype').val();
-        var collection = $(this).find('#collection').val();
-        var description = $(this).find('#description').val();
-        ihcOut +=
-        '\t<idnumber>' + idNumber + '</idnumber>\n'
-        + '\t<title>' + title + '</title>\n'
-        + '\t<creator>' + creator + '</creator>\n'
-        + '\t<creationdate>' + creationDate + '</creationdate>\n'
-        + '\t<totalrunningtime>' + totalRunningTime + '</totalrunningtime>\n'
-        + '\t<formattype>' + formatType + '</formattype>\n'
-        + '\t<collection>' + collection + '</collection>\n'
-        + '\t<description>' + description + '</description>\n'
-        + '</metadata>';
-    });
-    $('#output').val(ihcOut);
-
-}
-
-function clearform() {
-  $('#output').val('');
-}
-
-</script>
-
 
   </head>
   <body>
@@ -70,7 +35,6 @@ function clearform() {
               <li class="active"><a href="#">Video</a></li>
               <li><a href="../born-digital/">Born-Digital</a></li>
               <li><a href="../capture-log/">Capture inventory</a></li>
-              <li><a href="../resources.html">Resources</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -81,7 +45,7 @@ function clearform() {
 
       <hr>
 <br>
-      <form class="form-horizontal ajax" action="ajax.php" method="post">
+      <form name="frm" class="form-horizontal ajax" action="../ajax.php" method="post">
 
       <div class="row">
 
@@ -91,7 +55,7 @@ function clearform() {
            <div class="control-group">
           <label class="control-label" for="inputID">ID Number</label>
           <div class="controls">
-                <input id="inputID" name="xfr_identifier" type="text" placeholder="XFR.2013-7-23.1A">
+                <input id="inputID" name="identifier" type="text" placeholder="XFR.2013-7-23.1A">
           </div>
           </div>
 
@@ -112,7 +76,7 @@ function clearform() {
           <div class="control-group">
             <label class="control-label" for="inputCreationDate">Creation Date</label>
             <div class="controls">
-              <input id="inputCreationDate" name="creationDate" type="text" placeholder="1984">
+              <input id="inputCreationDate" name="date" type="text" placeholder="1984">
             </div>
           </div>
                           <!-- Select Basic -->
@@ -278,10 +242,11 @@ function clearform() {
 </div> 
 
 <br><br>
-     <button type="button" class="btn btn-danger" onclick="clearform()">Clear form</button>
+     <button type="button" class="btn btn-danger reset">Clear form</button>
       &nbsp;
       
-      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal" onclick="printthis()">Get XML</a>
+      <a href="#" role="button" class="btn btn-primary makeXML">Get XML</a>
+
 
   </div>
 </div>
@@ -304,8 +269,8 @@ function clearform() {
     <textarea id="output" rows="18" class="fullwidth"></textarea>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Go back</button>
-    <button type="submit" class="btn btn-success">Download XML and save to inventory</button>
+    
+
   </div>
 </div>
 
@@ -317,8 +282,8 @@ function clearform() {
 
 
 
-    </div> <!-- /container --><script src="../js/jquery-1.10.1.min.js"></script>
+    </div> <!-- /container --><script src="../../js/jquery-1.10.1.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/main.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>

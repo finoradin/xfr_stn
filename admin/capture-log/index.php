@@ -12,7 +12,7 @@ $foo =  mysql_query("SELECT * FROM items;") or die(mysql_error());
     <title>XFR STN Ingest Log</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
         <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -24,6 +24,7 @@ $foo =  mysql_query("SELECT * FROM items;") or die(mysql_error());
             .fullwidth{
         width: 97%;
       }
+
 
     </style>
 
@@ -40,9 +41,9 @@ $foo =  mysql_query("SELECT * FROM items;") or die(mysql_error());
           <a class="brand" href="#">XFR STN</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="../">Intake form</a></li>
-              <li class="active"><a href="#about">Capture inventory</a></li>
-              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="../video/">Video</a></li>
+              <li><a href="../born-digital/">Born-Digital</a></li>
+              <li class="active"><a href="#">Capture inventory</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -59,14 +60,15 @@ $foo =  mysql_query("SELECT * FROM items;") or die(mysql_error());
 <?php
 if (mysql_num_rows($foo) > 0) {
 echo '<table class="table table-striped table-bordered table-hover">';
-echo '<td width="130px"><b>Identifier</b></td><td><b>Title</b></td><td width="100px"><b>Capture date</b></td><td width="150px"><b>Format</b></td><td width="150px"><b>Captured by</b></td>';
+echo '<td width="130px"><b>Identifier</b></td><td><b>Operator</b></td><td width="100px"><b>Title</b></td><td width="150px"><b>Creator</b></td><td width="150px"><b>Format</b></td><td width="150px"><b>XML metadata</b></td>';
 while ($row = mysql_fetch_assoc($foo)) {
 echo "<tr>
-<td><a href='xml_renderer.php?item={$row['xfr_identifier']}' data-target='#modal-item' data-toggle='modal'>{$row['xfr_identifier']}</a></td>
+<td>{$row['id_number']}</td>
+<td>{$row['operator']}</td>
 <td>{$row['title']}</td>
-<td>{$row['capture_date']}</td>
-<td>{$row['format_type']}</td>
-<td>{$row['captured_by']}</td>
+<td>{$row['creator']}</td>
+<td>{$row['format']}</td>
+<td><a href='xml_downloader.php?item={$row['id_number']}'>{$row['id_number']}.xml</a></td>
 </tr>";
 }
 echo '</table>';
@@ -77,20 +79,6 @@ echo 'No rows in selected table';
 
 
 
-<!-- Modal -->
-<div id="modal-item" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-    <h3 id="myModalLabel">XML for the Internet Archive</h3>
-  </div>
-  <div class="modal-body">
-    Loading content...
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Go back</button>
-    <button type="submit" class="btn btn-success">Download XML file</button>
-  </div>
-</div>
 
 
 
@@ -98,8 +86,8 @@ echo 'No rows in selected table';
 
 <hr>
 
-    </div> <!-- /container --><script src="../js/jquery-1.10.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    </div> <!-- /container --><script src="../../js/jquery-1.10.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

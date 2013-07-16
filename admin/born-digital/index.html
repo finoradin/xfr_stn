@@ -7,7 +7,7 @@
     <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
         <style>
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 60px;
       }
       .wider{
         width: 420px;
@@ -20,28 +20,7 @@
 
 <script type="text/javascript">
 
-function printthis() {
-var ihcOut = '<?xml version="1.0" encoding="UTF-8"?>\n<metadata>\n';
-$('form.ajax').each(function () {
-  var that = $(this);
-  that.find('[name]').each(function(index, value) {
-    var that = $(this),
-    name = that.attr('name'),
-    value = that.val();
-    if (value){
-      ihcOut +=
-      '<'+name+'>'+value+'</'+name+'>'
-      + '\n</metadata>';
-      console.log(ihcOut);
-    };
-  });
-$('#output').val(ihcOut);
-});
-}
 
-function clearform() {
-  $('#output').val('');
-}
 
 </script>
 </head>
@@ -61,7 +40,6 @@ function clearform() {
               <li><a href="../video/">Video</a></li>
               <li class="active"><a href="#">Born-Digital</a></li>
               <li><a href="../capture-log/">Capture inventory</a></li>
-              <li><a href="../resources.html">Resources</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -72,7 +50,7 @@ function clearform() {
 
       <hr>
 <br>
-      <form class="form-horizontal ajax" action="ajax.php" method="post">
+      <form name="frm" class="form-horizontal ajax" action="../ajax.php" method="post">
 
       <div class="row">
 
@@ -80,9 +58,9 @@ function clearform() {
         <h3>Core Content Metadata</h3>
           <fieldset>
            <div class="control-group">
-          <label class="control-label" for="inputID">ID Number</label>
+          <label class="control-label" for="identifier">ID Number</label>
           <div class="controls">
-                <input id="inputID" name="xfr_identifier" type="text" placeholder="XFR.2013-7-23.3A">
+                <input id="inputID" name="identifier" type="text" placeholder="XFR.2013-7-23.3A" required>
           </div>
           </div>
 
@@ -103,7 +81,7 @@ function clearform() {
           <div class="control-group">
             <label class="control-label" for="inputCreationDate">Creation Date</label>
             <div class="controls">
-              <input id="inputCreationDate" name="creationDate" type="text" placeholder="1984">
+              <input id="inputCreationDate" name="date" type="text" placeholder="1984">
             </div>
           </div>
                           <!-- Select Basic -->
@@ -140,7 +118,7 @@ function clearform() {
   <label class="control-label" for="station_id">Station ID</label>
   <div class="controls">
     <label class="radio" for="station_id-2">
-      <input type="radio" name="station_id" id="station_id-2" value="3 (born-digital)">
+      <input type="radio" name="stationID" id="station_id-2" value="3">
       3 (born-digital)
     </label>
   </div>
@@ -164,17 +142,17 @@ function clearform() {
 
 
         <div class="control-group">
-          <label class="control-label" for="recording_standard">Filesystem</label>
+          <label class="control-label" for="filesystem">Filesystem</label>
           <div class="controls">
-            <input id="recording_standard" name="recording_standard" type="text" placeholder="i.e. HFS">
+            <input id="filesystem" name="fileSystem" type="text" placeholder="i.e. HFS">
           </div>
         </div>
 
 
         <div class="control-group">
-          <label class="control-label" for="duration">Filesize</label>
+          <label class="control-label" for="filesize">Filesize</label>
           <div class="controls">
-            <input id="duration" name="duration" type="text" placeholder="i.e. 400KB">
+            <input id="filesize" name="filesize" type="text" placeholder="i.e. 400KB">
           </div>
         </div>
 
@@ -195,10 +173,10 @@ function clearform() {
 
 
 <br><br>
-     <button type="button" class="btn btn-danger" onclick="clearform()">Clear form</button>
+     <button type="button" class="btn btn-danger reset">Clear form</button>
       &nbsp;
       
-      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal" onclick="printthis()">Get XML</a>
+      <a href="#" role="button" class="btn btn-primary makeXML">Get XML</a>
 
   </div>
 </div>
@@ -221,8 +199,7 @@ function clearform() {
     <textarea id="output" rows="18" class="fullwidth"></textarea>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Go back</button>
-    <button type="submit" class="btn btn-success">Download XML and save to inventory</button>
+    
   </div>
 </div>
 
