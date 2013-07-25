@@ -55,7 +55,7 @@
            <div class="control-group">
           <label class="control-label" for="inputID">ID Number</label>
           <div class="controls">
-                <input id="inputID" name="identifier" type="text" placeholder="XFR.2013-7-23.1A">
+                <input id="inputID" name="identifier" type="text" placeholder="XFR_2013-7-23_1A">
           </div>
           </div>
 
@@ -85,9 +85,9 @@
           <div class="controls">
             <select id="collection" name="collection" class="input-large">
               <option></option>
-              <option>MWF</option>
+              <option>MWF Video Club</option>
               <option>New Museum</option>
-              <option>XFR STN Public</option>
+              <option>XFR STN</option>
             </select>
           </div>
         </div>
@@ -106,15 +106,17 @@
   <label class="control-label" for="station_id">Station ID</label>
   <div class="controls">
     <label class="radio" for="station_id-0">
-      <input type="radio" name="station_id" id="station_id-0" value="1 (video)" checked="checked">
+      <input type="radio" name="station_id" id="station_id-0" value="1">
       1 (video)
     </label>
     <label class="radio" for="station_id-1">
-      <input type="radio" name="station_id" id="station_id-1" value="2 (video)">
+      <input type="radio" name="station_id" id="station_id-1" value="2">
       2 (video)
     </label>
   </div>
 </div>
+
+<textarea rows="4" id="transferNotes" name="transferNotes" class="wider" placeholder="Transfer notes"></textarea>
 
 
         </div>
@@ -131,6 +133,11 @@
               <option>UMaticSP</option>
               <option>VHS</option>
               <option>S-VHS</option>
+              <option>Hi8</option>
+              <option>Digital8</option>
+              <option>8mm</option>
+              <option>Mini-DV</option>
+              <option>DVCAM</option>
             </select>
           </div>
         </div>
@@ -147,7 +154,7 @@
   <label class="control-label" for="color">Color</label>
   <div class="controls">
     <label class="radio" for="color-0">
-      <input type="radio" name="color" id="color-0" value="B&amp;W" checked="checked">
+      <input type="radio" name="color" id="color-0" value="B&amp;W">
       B&amp;W
     </label>
     <label class="radio" for="color-1">
@@ -184,7 +191,7 @@
   <label class="control-label" for="scanning_method">Scanning Method</label>
   <div class="controls">
     <label class="radio" for="scanning_method-0">
-      <input type="radio" name="scanning_method" id="scanning_method-0" value="Interlaced" checked="checked">
+      <input type="radio" name="scanning_method" id="scanning_method-0" value="Interlaced">
       Interlaced
     </label>
     <label class="radio" for="scanning_method-1">
@@ -198,6 +205,7 @@
   <label class="control-label" for="aspect_ratio">Aspect Ratio</label>
   <div class="controls">
     <select id="aspect_ratio" name="aspect_ratio" class="input-xlarge">
+      <option></option>
       <option>4:3</option>
       <option>16:9</option>
     </select>
@@ -208,24 +216,12 @@
   <label class="control-label" for="anamorphic">Anamorphic?</label>
   <div class="controls">
     <label class="checkbox" for="anamorphic-0">
-      <input type="checkbox" name="anamorphic" id="anamorphic-0" value="yes">
+      <input type="checkbox" name="anamorphic" id="anamorphic-0">
       yes
     </label>
   </div>
 </div>
 
-<div class="control-group">
-  <label class="control-label" for="recording_speed">Recording Speed</label>
-  <div class="controls">
-    <select id="recording_speed" name="recording_speed" class="input-xlarge">
-      <option>NA</option>
-      <option>SP</option>
-      <option>LP</option>
-      <option>EP</option>
-      <option>SLP</option>
-    </select>
-  </div>
-</div>
 <div class="control-group">
   <label class="control-label" for="brand_stock">Brand Stock</label>
   <div class="controls">
@@ -237,9 +233,16 @@
   <label class="control-label" for="model">Model</label>
   <div class="controls">
     <input id="model" name="model" type="text" placeholder="i.e. DVM-60EXML" class="input-xlarge">
-    
   </div>
 </div> 
+
+<div class="control-group">
+  <label class="control-label" for="markings">Markings</label>
+  <div class="controls">
+    <input id="markings" name="markings" type="text" placeholder="i.e. Drawing of a cat" class="input-xlarge">
+  </div>
+</div>
+
 
 <br><br>
      <button type="button" class="btn btn-danger reset">Clear form</button>
