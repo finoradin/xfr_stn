@@ -12,10 +12,19 @@ $(".makeXML").click(function() {
 	    var that = $(this),
 	    name = that.attr('name'),
 	    value = that.val();
-	    if (value && that.attr('type') != 'radio' && that.attr('id') != 'collection'){
+	    if (value && that.attr('type') != 'radio' && that.attr('type') != 'checkbox' && that.attr('id') != 'collection'){
 	      ihcOut +=
 	      '\n<'+name+'>'+value+'</'+name+'>';
 	    };
+	  
+	  
+	  if (that.attr('id') == 'anamorphic') {
+                if (that[0].checked){
+                ihcOut +=
+                '\n<'+name+'>'+value+'</'+name+'>';
+               }
+             }
+
 
 	    if (that.attr('id') == 'station_id-0') {
 	    	if (that[0].checked){
