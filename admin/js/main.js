@@ -33,7 +33,7 @@ $(".makeXML").click(function() {
 	    if ((name == 'collection' && value == 'MWF Video Club') || (name == 'collection' && value == 'New Museum')){
 	    		ihcOut +=
 				'\n<collection>xfrstn</collection>'
-				+'\n<'+name+'>'+value+'</'+name+'>';
+				+'\n<'+name+'>'+value.replace(/ /g,"_").toLowerCase()+'</'+name+'>';
 	    	}
 	    	else if (name == 'collection' && value == 'XFR STN'){
 	    		ihcOut +=
