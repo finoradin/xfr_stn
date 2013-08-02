@@ -12,7 +12,7 @@ $(".makeXML").click(function() {
 	    var that = $(this),
 	    name = that.attr('name'),
 	    value = that.val();
-	    if (value && that.attr('type') != 'radio' && that.attr('type') != 'checkbox' && that.attr('id') != 'collection'){
+	    if (value && that.attr('type') != 'radio' && that.attr('type') != 'checkbox' && that.attr('id') != 'collection' && that.attr('id') != 'License'){
 	      ihcOut +=
 	      '\n<'+name+'>'+value+'</'+name+'>';
 	    };
@@ -49,6 +49,32 @@ $(".makeXML").click(function() {
 				'\n<collection>xfrstn</collection>';
 	    	}
 	    
+	    if (name == 'licenseurl'){
+	    	if (value == 'Attribution 3.0 Unported'){
+	    	ihcOut +=
+				'\n<licenseurl>http://creativecommons.org/licenses/by/3.0/</licenseurl>';	
+	    	}
+	    	else if (value == 'Attribution-ShareAlike 3.0 Unported'){
+	    	ihcOut +=
+				'\n<licenseurl>http://creativecommons.org/licenses/by-sa/3.0/</licenseurl>';	
+	    	}
+	    	else if (value == 'Attribution-NoDerivs CC BY-ND'){
+	    	ihcOut +=
+				'\n<licenseurl>http://creativecommons.org/licenses/by-nd/3.0/</licenseurl>';	
+	    	}
+	    	else if (value == 'Attribution-NonCommercial CC BY-NC'){
+	    	ihcOut +=
+				'\n<licenseurl>http://creativecommons.org/licenses/by-nc/3.0/</licenseurl>';	
+	    	}
+	    	else if (value == 'Attribution-NonCommercial-ShareAlike CC BY-NC-SA'){
+	    	ihcOut +=
+				'\n<licenseurl>http://creativecommons.org/licenses/by-nc-sa/3.0/</licenseurl>';	
+	    	}
+	    	else if (value == 'Attribution-NonCommercial-NoDerivs CC BY-NC-ND'){
+	    	ihcOut +=
+				'\n<licenseurl>http://creativecommons.org/licenses/by-nc-nd/3.0/</licenseurl>';	
+	    	}
+	    }
 
 
 	    if (that.attr('type') == 'radio') {
