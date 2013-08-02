@@ -273,7 +273,7 @@ var stn1xml = (function () {/*
 			<EditingTimebase>29.97 fps</EditingTimebase>
 			<FieldDominance>Lower (Even)</FieldDominance>
 			<PixelAspectRatio>NTSC - CCIR 601 / DV</PixelAspectRatio>
-			<Anamorphic16:9>Off</Anamorphic>
+			<Anamorphic>Off</Anamorphic>
 			<VideoProcessing>YUV allowed (10-bit)</VideoProcessing>
 			<WhitePoint>White</WhitePoint>
 			<Compressor>Uncompressed 10-bit 4:2:2</Compressor>
@@ -410,7 +410,7 @@ var stn2xml = (function () {/*
 			<EditingTimebase>29.97 fps</EditingTimebase>
 			<FieldDominance>Lower (Even)</FieldDominance>
 			<PixelAspectRatio>NTSC - CCIR 601 / DV</PixelAspectRatio>
-			<Anamorphic16:9>Off</Anamorphic>
+			<Anamorphic>Off</Anamorphic>
 			<VideoProcessing>YUV allowed (10-bit)</VideoProcessing>
 			<WhitePoint>White</WhitePoint>
 			<Compressor>Uncompressed 10-bit 4:2:2</Compressor>
